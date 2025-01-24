@@ -1,0 +1,15 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/pending_task"
+        android:icon="@drawable/ic_pending_list"
+        android:title="@string/menu_home" />
+    <item
+        android:id="@+id/completed_task"
+        android:icon="@drawable/ic_completed_task"
+        android:title="@string/menu_dashboard" />
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/ic_profile"
+        android:title="@string/menu_notifications" />
+
+</menu>
