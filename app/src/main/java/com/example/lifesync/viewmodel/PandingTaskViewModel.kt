@@ -1,12 +1,12 @@
-package com.example.lifesync
+package com.example.lifesync.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.yourpa.db.Note
-import com.example.yourpa.db.NoteDB
-import com.example.yourpa.db.NoteRepo
+import com.example.lifesync.db.Note
+import com.example.lifesync.db.NoteDB
+import com.example.lifesync.db.NoteRepo
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

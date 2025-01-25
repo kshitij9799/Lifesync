@@ -1,7 +1,8 @@
-package com.example.lifesync
+package com.example.lifesync.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.lifesync.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

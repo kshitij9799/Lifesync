@@ -1,4 +1,4 @@
-package com.example.lifesync
+package com.example.lifesync.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,9 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.yourpa.db.INoteRVAdapter
-import com.example.yourpa.db.Note
-import com.example.yourpa.db.NoteAdapter
+import com.example.lifesync.viewmodel.PandingTaskViewModel
+import com.example.lifesync.R
+import com.example.lifesync.db.INoteRVAdapter
+import com.example.lifesync.db.Note
+import com.example.lifesync.db.NoteAdapter
 
 class PandingTaskFragment : Fragment(),INoteRVAdapter {
 

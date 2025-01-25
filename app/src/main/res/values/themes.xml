@@ -5,5 +5,5 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.Lifesync" parent="Base.Theme.YourPA" />
+    <style name="Theme.Lifesync" parent="Base.Theme.lifesync" />
 </resources>

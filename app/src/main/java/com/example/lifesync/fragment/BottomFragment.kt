@@ -1,14 +1,15 @@
-package com.example.lifesync
+package com.example.lifesync.fragment
 
 import androidx.fragment.app.viewModels
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentContainerView
-import com.example.lifesync.AddTaskFragment
+import com.example.lifesync.viewmodel.BottomViewModel
+import com.example.lifesync.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 

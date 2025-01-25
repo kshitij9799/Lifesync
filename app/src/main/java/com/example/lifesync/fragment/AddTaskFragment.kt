@@ -1,4 +1,4 @@
-package com.example.lifesync
+package com.example.lifesync.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.lifesync.R
 
 class AddTaskFragment : Fragment() {
 

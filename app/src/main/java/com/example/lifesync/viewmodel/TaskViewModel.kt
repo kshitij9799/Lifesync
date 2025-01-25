@@ -1,4 +1,4 @@
-package com.example.lifesync
+package com.example.lifesync.viewmodel
 
 import androidx.lifecycle.ViewModel
 

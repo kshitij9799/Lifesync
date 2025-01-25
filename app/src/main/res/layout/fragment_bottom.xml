@@ -4,11 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".BottomFragment">
+    tools:context=".fragment.BottomFragment">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/bottom_nav_fragment_container"
-        android:name="com.example.yourpa.PandingTaskFragment"
+        android:name="com.example.lifesync.fragment.PandingTaskFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/bottomNavigationView"

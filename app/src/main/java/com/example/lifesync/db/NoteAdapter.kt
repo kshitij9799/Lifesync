@@ -1,6 +1,5 @@
 package com.example.lifesync.db
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -8,8 +7,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.yourpa.PandingTaskFragment
-import com.example.yourpa.R
+import com.example.lifesync.fragment.PandingTaskFragment
+import com.example.lifesync.R
 
 class NoteAdapter(val context: Context, private val listener: PandingTaskFragment, private val list: List<Note>) : RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
 
