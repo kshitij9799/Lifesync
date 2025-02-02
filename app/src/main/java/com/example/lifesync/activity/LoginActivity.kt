@@ -1,5 +1,7 @@
 package com.example.lifesync.activity
 
+import android.app.Application
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
@@ -27,8 +29,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.core.content.ContextCompat.startActivity
 import com.example.lifesync.activity.ui.theme.LifesyncTheme
+import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.HiltAndroidApp
 
+@AndroidEntryPoint
 class LoginActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -71,7 +77,10 @@ fun Login(name: String, modifier: Modifier = Modifier) {
                 label = { Text("Enter Password") },
             )
             Button(
-                onClick = { Toast.makeText(context, "Submit", Toast.LENGTH_SHORT).show() },
+                onClick = {
+                    var intent = Intent(context, MainActivity::class.java)
+                    context.startActivity(intent)
+                },
                 shape = RoundedCornerShape(8.dp), // Set rounded corners
                 border = BorderStroke(1.dp, Color.Black), // Add a black border
                 contentPadding = PaddingValues(16.dp), // Set padding

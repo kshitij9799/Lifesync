@@ -1,25 +1,32 @@
 package com.example.lifesync.fragment
 
+import com.example.lifesync.db.User
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.coroutineScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lifesync.viewmodel.PandingTaskViewModel
 import com.example.lifesync.R
-import com.example.lifesync.db.INoteRVAdapter
-import com.example.lifesync.db.Note
-import com.example.lifesync.db.NoteAdapter
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlin.coroutines.coroutineContext
+import kotlin.getValue
 
-class PandingTaskFragment : Fragment(),INoteRVAdapter {
+@AndroidEntryPoint
+class PandingTaskFragment : Fragment() {
 
     companion object {
         fun newInstance() = PandingTaskFragment()
     }
 
-    private lateinit var viewModel: PandingTaskViewModel
+    private val viewModel: PandingTaskViewModel  by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,28 +40,16 @@ class PandingTaskFragment : Fragment(),INoteRVAdapter {
         val recyclerView = view.findViewById<RecyclerView>(R.id.recycler_view)
 
         recyclerView.layoutManager = LinearLayoutManager(context)
-        var list: List<Note> = listOf(Note("a"),Note("b"),Note("b"),Note("b"),Note("b"),Note("b"))
-        val adapter = NoteAdapter(requireContext(),this,list)
-        recyclerView.adapter = adapter
 
+        viewModel.user.observe(viewLifecycleOwner){
+            Log.d("checkdata", "onCreateView: $it")
+            lifecycle.coroutineScope.launch(Dispatchers.Main){
+                if (it.size > 1) viewModel.deleteUser(it[0])
+            }
+        }
 
-//        viewModel = ViewModelProvider(
-//            this,
-//            ViewModelProvider.AndroidViewModelFactory.getInstance(requireActivity().application)
-//        )[PandingTaskViewModel::class.java]
-//
-//        viewModel.allNotes.observe(viewLifecycleOwner, Observer {list ->
-//            list?.let {
-//                adapter.updateList(list)
-//            }
-//        })
 
         return view
     }
-
-    override fun onItemClicked(note: Note) {
-//        viewModel.deleteNote(note)
-    }
-
 
 }

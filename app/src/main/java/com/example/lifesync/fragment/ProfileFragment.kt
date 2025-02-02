@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.lifesync.viewmodel.ProfileViewModel
 import com.example.lifesync.R
+import com.example.lifesync.fragment.BottomFragment.Companion.addTaskButton
 
 class ProfileFragment : Fragment() {
 
@@ -26,7 +27,7 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
-
+        addTaskButton.hide()
         return view
     }
 }

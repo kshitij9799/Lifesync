@@ -8,18 +8,27 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.coroutineScope
 import com.example.lifesync.R
+import com.example.lifesync.db.User
+import com.example.lifesync.viewmodel.AddTaskViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class AddTaskFragment : Fragment() {
 
     companion object {
         fun newInstance() = AddTaskFragment()
     }
 
+    private val viewModel: AddTaskViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // TODO: Use the ViewModel
     }
 
     override fun onCreateView(
@@ -34,6 +43,12 @@ class AddTaskFragment : Fragment() {
             val desc = view.findViewById<EditText>(R.id.titleDesc).text.toString()
 
             Toast.makeText(context, title + desc , Toast.LENGTH_SHORT).show()
+            lifecycle.coroutineScope.launch(Dispatchers.Main){
+                viewModel.insertUser(User(
+                    name = "Ksh",
+                    email = "Ksh"
+                ))
+            }
         }
 
         return view

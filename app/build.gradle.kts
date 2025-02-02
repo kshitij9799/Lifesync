@@ -1,7 +1,12 @@
+import com.github.javaparser.printer.lexicalpreservation.DifferenceElement.kept
+
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
     alias(libs.plugins.kotlin.compose)
+    id("kotlin-android")
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -36,7 +41,6 @@ android {
     }
     buildFeatures {
         viewBinding = true
-        dataBinding = true
         compose = true
     }
 }
@@ -72,6 +76,7 @@ dependencies {
     implementation (libs.androidx.lifecycle.extensions)
     implementation (libs.androidx.lifecycle.viewmodel.ktx.v210)
     implementation (libs.androidx.room.ktx)
+    kapt(libs.androidx.room.compiler)
 
     // Coroutines
     implementation(libs.kotlinx.coroutines.android.v139)
@@ -93,4 +98,10 @@ dependencies {
     annotationProcessor(libs.room.compiler)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    // ... other dependencies
+    implementation("com.google.dagger:hilt-android:2.51.1") // Use the latest version
+    kapt("com.google.dagger:hilt-compiler:2.51.1") // Use the latest version
 }
+ kapt {
+       correctErrorTypes = true
+ }

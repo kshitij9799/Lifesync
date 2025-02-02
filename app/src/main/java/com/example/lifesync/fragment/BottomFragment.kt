@@ -12,11 +12,14 @@ import com.example.lifesync.viewmodel.BottomViewModel
 import com.example.lifesync.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class BottomFragment : Fragment() {
 
     companion object {
         fun newInstance() = BottomFragment()
+        lateinit var addTaskButton: FloatingActionButton
     }
 
     private val viewModel: BottomViewModel by viewModels()
@@ -36,7 +39,7 @@ class BottomFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_bottom, container, false)
         val bottomNavView = view.findViewById<BottomNavigationView>(R.id.bottomNavigationView)
         val fragmentContainerView = view.findViewById<FragmentContainerView>(R.id.bottom_nav_fragment_container)
-        val addTaskButton = view.findViewById<FloatingActionButton>(R.id.task_add_btn)
+        addTaskButton = view.findViewById<FloatingActionButton>(R.id.task_add_btn)
 
         addTaskButton.setOnClickListener {
             val transaction = childFragmentManager.beginTransaction()
