@@ -7,6 +7,7 @@ plugins {
     id("kotlin-android")
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -101,6 +102,12 @@ dependencies {
     // ... other dependencies
     implementation("com.google.dagger:hilt-android:2.51.1") // Use the latest version
     kapt("com.google.dagger:hilt-compiler:2.51.1") // Use the latest version
+
+    implementation(libs.retrofit)
+    implementation(libs.gson)
+    implementation(libs.okhttp)
+    implementation(libs.logging.interceptor)
+    implementation(libs.firebase.analytics)
 }
  kapt {
        correctErrorTypes = true

@@ -26,7 +26,6 @@ class BottomFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        Toast.makeText(this.context, "1", Toast.LENGTH_SHORT).show()
         super.onCreate(savedInstanceState)
 
         // TODO: Use the ViewModel
@@ -51,7 +50,7 @@ class BottomFragment : Fragment() {
             when (item.itemId) {
 
                 R.id.pending_task -> {
-                    Toast.makeText(context, "1", Toast.LENGTH_SHORT).show()
+                    addTaskButton.show()
                     val transaction = childFragmentManager.beginTransaction()
                     transaction.replace(fragmentContainerView.id, PandingTaskFragment())
                     transaction.commit()
@@ -59,7 +58,7 @@ class BottomFragment : Fragment() {
                 }
 
                 R.id.completed_task -> {
-                    Toast.makeText(context, "2", Toast.LENGTH_SHORT).show()
+                    addTaskButton.hide()
                     val transaction = childFragmentManager.beginTransaction()
                     transaction.replace(fragmentContainerView.id, CompletedTaskFragment())
                     transaction.commit()
@@ -67,10 +66,10 @@ class BottomFragment : Fragment() {
                 }
 
                 R.id.profile -> {
-                    Toast.makeText(context, "3", Toast.LENGTH_SHORT).show()
-                    val transaction = childFragmentManager.beginTransaction()
-                    transaction.replace(fragmentContainerView.id, ProfileFragment())
-                    transaction.commit()
+                    Toast.makeText(requireContext(), "Work is in progress", Toast.LENGTH_SHORT).show()
+//                    val transaction = childFragmentManager.beginTransaction()
+//                    transaction.replace(fragmentContainerView.id, ProfileFragment())
+//                    transaction.commit()
                     true
                 }
 

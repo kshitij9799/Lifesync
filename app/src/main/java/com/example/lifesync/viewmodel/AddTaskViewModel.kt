@@ -1,8 +1,8 @@
 package com.example.lifesync.viewmodel
 
 import androidx.lifecycle.ViewModel
-import com.example.lifesync.db.User
-import com.example.lifesync.db.UserDao
+import com.example.lifesync.db.Task
+import com.example.lifesync.db.TaskDao
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -11,11 +11,11 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AddTaskViewModel @Inject constructor(
-    private val userDao: UserDao
+    private val taskDao: TaskDao
 ) : ViewModel() {
-    fun insertUser(user: User) {
+    fun insertUser(task: Task) {
         CoroutineScope(Dispatchers.IO).launch {
-            userDao.insert(user)
+            taskDao.insert(task)
         }
     }
 }

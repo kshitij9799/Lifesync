@@ -5,13 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.coroutineScope
 import com.example.lifesync.R
-import com.example.lifesync.db.User
+import com.example.lifesync.db.Task
 import com.example.lifesync.viewmodel.AddTaskViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
@@ -37,6 +38,7 @@ class AddTaskFragment : Fragment() {
     ): View {
         val view = inflater.inflate(R.layout.fragment_add_task, container, false)
         val subBtn = view.findViewById<Button>(R.id.sub_btn)
+        val onlyForMeCB = view.findViewById<CheckBox>(R.id.onlyForMeCB)
 
         subBtn.setOnClickListener{
             val title = view.findViewById<EditText>(R.id.taskTitle).text.toString()
@@ -44,11 +46,16 @@ class AddTaskFragment : Fragment() {
 
             Toast.makeText(context, title + desc , Toast.LENGTH_SHORT).show()
             lifecycle.coroutineScope.launch(Dispatchers.Main){
-                viewModel.insertUser(User(
-                    name = "Ksh",
-                    email = "Ksh"
-                ))
+                if (onlyForMeCB.isChecked) {
+                    viewModel.insertUser(Task(
+                        task = title,
+                        desc = desc,
+                        status = "pending"
+                    ))
+                }
+
             }
+
         }
 
         return view

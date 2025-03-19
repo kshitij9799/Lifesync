@@ -27,4 +27,7 @@
     <string name="task_title">Task Title</string>
     <string name="task_description">Task Description</string>
     <string name="login_activity">LoginActivity</string>
+    <string name="only_for_me">Only for me</string>
+    <string name="for_me">For me</string>
+    <string name="for_everyone">For Everyone</string>
 </resources>

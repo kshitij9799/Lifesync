@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="20dp"
     tools:context=".fragment.AddTaskFragment">
 
     <TextView
@@ -13,7 +14,6 @@
         android:layout_marginTop="48dp"
         android:gravity="center"
         android:textSize="40sp"
-        android:textColor="@color/black"
         android:text="@string/add_task_title"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,6 +43,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/taskTitle" />
+
+    <CheckBox
+        android:id="@+id/onlyForMeCB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/only_for_me"
+        app:layout_constraintStart_toStartOf="@+id/titleDesc"
+        app:layout_constraintTop_toBottomOf="@+id/titleDesc" />
 
     <Button
         android:id="@+id/sub_btn"

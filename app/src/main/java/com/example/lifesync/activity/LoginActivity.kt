@@ -39,6 +39,8 @@ class LoginActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        var intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
         setContent {
             LifesyncTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
