@@ -21,6 +21,12 @@ interface TaskDao {
     @Query("SELECT * FROM Task_table")
     fun getAllTasks(): LiveData<List<Task>>
 
+    @Query("SELECT * FROM Task_table WHERE Task_status = 'pending'")
+    fun getAllPendingTasks(): LiveData<List<Task>>
+
+    @Query("SELECT * FROM Task_table WHERE Task_status = 'completed'")
+    fun getAllCompletedTasks(): LiveData<List<Task>>
+
     @Query("SELECT * FROM Task_table WHERE Task_name LIKE :name")
     fun findByName(name: String): List<Task>
 }

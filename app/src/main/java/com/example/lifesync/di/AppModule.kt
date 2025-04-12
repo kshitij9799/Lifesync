@@ -3,6 +3,7 @@ package com.example.lifesync.di // Correct package!
 import android.content.Context
 import androidx.room.Room
 import com.example.lifesync.db.AppDatabase
+import com.example.lifesync.db.MIGRATION_1_2
 import com.example.lifesync.db.TaskDao
 import com.example.lifesync.util.ApiService
 import dagger.Module
@@ -25,12 +26,17 @@ object AppModule {
             context.applicationContext,
             AppDatabase::class.java,
             "lifesync_database"
-        ).build()
+        ).addMigrations(MIGRATION_1_2).build()
     }
 
     @Provides
-    fun provideUserDao(appDatabase: AppDatabase): TaskDao {
+    fun provideTaskDao(appDatabase: AppDatabase): TaskDao {
         return appDatabase.taskDao()
+    }
+
+    @Provides
+    fun providePasswordDao(appDatabase: AppDatabase): com.example.lifesync.db.PasswordDao {
+        return appDatabase.passwordDao()
     }
 
     @Singleton

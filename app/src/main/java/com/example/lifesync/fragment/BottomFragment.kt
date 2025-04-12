@@ -1,15 +1,14 @@
 package com.example.lifesync.fragment
 
-import androidx.fragment.app.viewModels
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentContainerView
-import com.example.lifesync.viewmodel.BottomViewModel
+import androidx.fragment.app.viewModels
 import com.example.lifesync.R
+import com.example.lifesync.viewmodel.BottomViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import dagger.hilt.android.AndroidEntryPoint
@@ -66,10 +65,18 @@ class BottomFragment : Fragment() {
                 }
 
                 R.id.profile -> {
-                    Toast.makeText(requireContext(), "Work is in progress", Toast.LENGTH_SHORT).show()
-//                    val transaction = childFragmentManager.beginTransaction()
-//                    transaction.replace(fragmentContainerView.id, ProfileFragment())
-//                    transaction.commit()
+                    addTaskButton.hide()
+                    val transaction = childFragmentManager.beginTransaction()
+                    transaction.replace(fragmentContainerView.id, ProfileFragment())
+                    transaction.commit()
+                    true
+                }
+
+                R.id.passwords -> {
+                    addTaskButton.hide()
+                    val transaction = childFragmentManager.beginTransaction()
+                    transaction.replace(fragmentContainerView.id, PasswordFragment())
+                    transaction.commit()
                     true
                 }
 

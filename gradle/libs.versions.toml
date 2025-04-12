@@ -2,6 +2,8 @@
 agp = "8.8.0"
 androidxLifecycleViewmodelKtx = "2.8.7"
 androidxMaterial = "1.7.7"
+coilCompose = "2.7.0"
+firebaseBom = "33.11.0"
 kotlin = "1.9.22"
 compose = "2.0.0"
 coreKtx = "1.15.0"
@@ -46,7 +48,12 @@ androidx-material = { module = "androidx.compose.material:material", version.ref
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomCompiler" }
 androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomRuntime" }
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomRuntime" }
+coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilCompose" }
 firebase-analytics = { module = "com.google.firebase:firebase-analytics" , version.ref = "firebaseAnalytics" }
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
+firebase-crashlytics = { module = "com.google.firebase:firebase-crashlytics" }
+firebase-perf = { module = "com.google.firebase:firebase-perf" }
+google-firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -81,7 +88,6 @@ retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit
 gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
 okhttp = { module = "com.squareup.okhttp3:okhttp", version = "4.12.0" }
 logging-interceptor = { module = "com.squareup.okhttp3:logging-interceptor", version = "4.12.0" }
-
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 org-jetbrains-kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "org-jetbrains-kotlin-android" }

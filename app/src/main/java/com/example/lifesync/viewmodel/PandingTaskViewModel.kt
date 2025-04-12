@@ -20,7 +20,7 @@ class PandingTaskViewModel @Inject constructor(
     private val taskDao: TaskDao,
     private val apiService: ApiService
 ) : ViewModel() {
-    val user: LiveData<List<Task>> = taskDao.getAllTasks()
+    val allPendingTask: LiveData<List<Task>> = taskDao.getAllPendingTasks()
 
     val exceptionHandler = CoroutineExceptionHandler { _, exception ->
         println("Api exception: ${exception.message}")

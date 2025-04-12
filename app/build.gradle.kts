@@ -1,4 +1,5 @@
-import com.github.javaparser.printer.lexicalpreservation.DifferenceElement.kept
+
+import org.gradle.kotlin.dsl.android
 
 plugins {
     alias(libs.plugins.androidApplication)
@@ -8,6 +9,8 @@ plugins {
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
     id("com.google.gms.google-services")
+    id("com.google.firebase.crashlytics")
+    id("com.google.firebase.firebase-perf")
 }
 
 android {
@@ -47,7 +50,6 @@ android {
 }
 
 dependencies {
-
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -108,6 +110,11 @@ dependencies {
     implementation(libs.okhttp)
     implementation(libs.logging.interceptor)
     implementation(libs.firebase.analytics)
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.crashlytics)
+    implementation(libs.google.firebase.analytics)
+    implementation(libs.firebase.perf)
+    implementation(libs.coil.compose)
 }
  kapt {
        correctErrorTypes = true
