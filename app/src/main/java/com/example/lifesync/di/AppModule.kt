@@ -43,7 +43,7 @@ object AppModule {
     @Provides
     fun provideApiService(): ApiService {
         return Retrofit.Builder()
-            .baseUrl("https://manage-daily.onrender.com/")
+            .baseUrl("https://a234-2405-201-1016-380b-3907-2292-81e0-6b11.ngrok-free.app/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(ApiService::class.java)
